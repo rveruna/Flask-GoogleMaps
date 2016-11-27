@@ -69,7 +69,6 @@ def mapview():
         'example.html',
         mymap=mymap,
         trdmap=trdmap,
-        pgonmap=pgonmap,
         movingmap=movingmap,
         movingmarkers=movingmarkers,
     )
