@@ -69,7 +69,6 @@ def mapview():
         'example.html',
         mymap=mymap,
         trdmap=trdmap,
-        movingmarkers=movingmarkers,
     )
 
 if __name__ == "__main__":
