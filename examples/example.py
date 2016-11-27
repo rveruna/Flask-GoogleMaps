@@ -68,7 +68,11 @@ def mapview():
     return render_template(
         'example.html',
         mymap=mymap,
+        sndmap=sndmap,
         trdmap=trdmap,
+        pgonmap=pgonmap,
+        movingmap=movingmap,
+        movingmarkers=movingmarkers,
     )
 
 if __name__ == "__main__":
