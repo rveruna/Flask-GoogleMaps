@@ -8,14 +8,6 @@
             {{mymap.js}}
             {{sndmap.js}}
             {{trdmap.js}}
-            {{clustermap.js}}
-            {{movingmap.js}}
-            {{rectmap.js}}
-            {{circlemap.js}}
-            {{plinemap.js}}
-            {{pgonmap.js}}
-            {{collapsible.js}}
-            {{infoboxmap.js}}
     </head>
     <body>
         <h1>Flask Google Maps Example</h1>
@@ -185,151 +177,40 @@ in body:
             </pre>
         </code>
 
-        <h2> Second map generated in view</h2>
-        <h3> Example for different icons in multiple markers</h3>
-        <h4>The blue point is clickable!</h4>
-        {{sndmap.html}}
+
 
         <code>
             <pre>
 {% raw %}
 
-View:
-from flask_googlemaps import Map, icons
-
-@app.route("/")
-def mapview():
-    sndmap = Map(
-        identifier="sndmap",
-        lat=37.4419,
-        lng=-122.1419,
-        markers={icons.dots.green: [(37.4419, -122.1419), (37.4500, -122.1350)],
-                 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png': [(37.4300, -122.1400, "Hello World")]}
-    )
-    return render_template('example.html', sndmap=sndmap)
-
-Template:
-in head:
-    {{sndmap.js}}
-in body:
-    {{sndmap.html}}
 
 {% endraw %}
             </pre>
         </code>
 
 
-        <h2> 3rd map generated in view</h2>
-        <h3> Example for multiple markers with infoboxes</h3>
-        <h4>Click in markers to see it in action!</h4>
-        <h4>Click in the YELLOW marker to see HTML rendered</h4>
-        {{trdmap.html}}
+
 
         <code>
             <pre>
 {% raw %}
 
-View:
-from flask_googlemaps import Map, icons
-
-@app.route("/")
-def mapview():
-    trdmap = Map(
-        identifier="trdmap",
-        lat=37.4419,
-        lng=-122.1419,
-        markers=[
-            {
-                'icon': icons.alpha.B,
-                'lat':  37.4419,
-                'lng':  -122.1419,
-                'infobox': "Hello I am < b style='color:green;'>B< / b >!"
-            },
-            {
-                'icon': icons.dots.blue,
-                'lat': 37.4300,
-                'lng': -122.1400,
-                'infobox': "Hello I am < b style='color:blue;'>BLUE< / b >!"
-            },
-            {
-                'icon': icons.dots.yellow,
-                'lat': 37.4500,
-                'lng': -122.1350,
-                'infobox': (
-                    "Hello I am < b style='color:#ffcc00;'> YELLOW < / b >!"
-                    "< h2 >It is HTML title< / h2 >"
-                    "< img src=' //placehold.it/50' >"
-                    "< br >Images allowed!"
-                )
-            }
-        ]
-    )
-    return render_template('example.html', trdmap=trdmap)
-
-Template:
-in head:
-    {{trdmap.js}}
-in body:
-    {{trdmap.html}}
 
 {% endraw %}
             </pre>
         </code>
 
-        <h2>Map with rectangle example</h2>
-
-        {{ rectmap.html }}
-
-        <h2>Map with circle example</h2>
-
-        {{ circlemap.html }}
-
-        <h2>Map with polyline example</h2>
-
-        {{ plinemap.html }}
 
 
-        <h2>Map with polygons examples</h2>
-
-        {{ pgonmap.html }}
-
-        <h2 style="display:inline-block;">Collapsible map example</h2>
-
-        <button id="collapsible_collapse">Show map</button>
-        {{ collapsible.html }}
 
                 <code>
             <pre>
 {% raw %}
 
-View:
-from flask_googlemaps import Map, icons
-
-@app.route("/")
-def mapview():
-    collapsible = Map(
-        identifier="collapsible",
-        varname="collapsible",
-        lat=60.000025,
-        lng=30.288809,
-        zoom = 13,
-        collapsible = True
-    )
-    return render_template('example.html', collapsible=collapsible)
-
-Template:
-in head:
-    {{collapsible.js}}
-in body:
-    &lt;button id="collapsible_collapse"&gt;Show map&lt;/button&gt;
-    {{collapsible.html}}
 
 {% endraw %}
             </pre>
         </code>
-
-        <h2>Infoboxes for map shapes</h2>
-        {{infoboxmap.html}}
 
     </body>
 </html>
